@@ -37,7 +37,7 @@ public class LoginController {
     private RedSocialController redSocialController;
 
     @FXML
-    public void initialize() {
+public void initialize() {
         redSocialController = RedSocialController.getInstancia();
     }
     

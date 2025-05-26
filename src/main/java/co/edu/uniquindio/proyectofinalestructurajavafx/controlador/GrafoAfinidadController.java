@@ -24,7 +24,7 @@ import java.util.Map;
 
 
 
-    public class GrafoAfinidadController {
+    public class GrafoAfinidadController  {
 
         private ListaEnlazada<Estudiante> estudiantes;
 

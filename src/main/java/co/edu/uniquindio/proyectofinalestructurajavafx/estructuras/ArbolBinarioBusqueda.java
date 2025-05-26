@@ -6,7 +6,7 @@ import java.util.function.Consumer;
  * Implementación de un árbol binario de búsqueda genérico
  * @param <T> Tipo de dato que almacena el árbol, debe ser comparable
  */
-public class ArbolBinarioBusqueda<T extends Comparable<T>> {
+public class ArbolBinarioBusqueda<T extends Comparable<T>>  {
     private NodoArbol<T> raiz;
     private int tamaño;
 

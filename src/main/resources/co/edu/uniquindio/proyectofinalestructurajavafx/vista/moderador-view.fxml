@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectofinalestructurajavafx.controlador.ModeradorController">
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="20.0" style="-fx-background-color: #f0f0f0;" BorderPane.alignment="CENTER">
+            <children>
+                <Label text="Red Social Educativa - Panel de Moderador">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </Label>
+                <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                    <children>
+                        <VBox alignment="CENTER_RIGHT">
+                            <children>
+                                <Label fx:id="lblNombreUsuario" text="Nombre del Moderador">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="lblRol" text="Moderador" />
+                            </children>
+                        </VBox>
+                        <Button mnemonicParsing="false" onAction="#cerrarSesion" text="Cerrar Sesión">
+                            <HBox.margin>
+                                <Insets left="20.0" />
+                            </HBox.margin>
+                        </Button>
+                    </children>
+                </HBox>
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+            </padding>
+        </HBox>
+    </top>
+    <center>
+        <TabPane fx:id="tabPaneModerador" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+            <tabs>
+                <Tab text="Usuarios">
+                    <content>
+                        <BorderPane>
+                            <top>
+                                <HBox alignment="CENTER" spacing="10.0" BorderPane.alignment="CENTER">
+                                    <children>
+                                        <TextField fx:id="txtBuscarUsuario" promptText="Buscar usuario..." HBox.hgrow="ALWAYS" />
+                                        <Button mnemonicParsing="false" onAction="#buscarUsuario" text="Buscar" />
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </padding>
+                                </HBox>
+                            </top>
+                            <center>
+                                <TableView fx:id="tblUsuarios" BorderPane.alignment="CENTER">
+                                    <columns>
+                                        <TableColumn fx:id="colIdUsuario" prefWidth="100.0" text="ID" />
+                                        <TableColumn fx:id="colNombreUsuario" prefWidth="250.0" text="Nombre" />
+                                        <TableColumn fx:id="colCorreoUsuario" prefWidth="250.0" text="Correo" />
+                                        <TableColumn fx:id="colTipoUsuario" prefWidth="100.0" text="Tipo" />
+                                    </columns>
+                                </TableView>
+                            </center>
+                        </BorderPane>
+                    </content>
+                </Tab>
+                <Tab text="Contenidos">
+                    <content>
+                        <BorderPane>
+                            <top>
+                                <HBox alignment="CENTER" spacing="10.0" BorderPane.alignment="CENTER">
+                                    <children>
+                                        <TextField fx:id="txtBuscarContenido" promptText="Buscar contenido..." HBox.hgrow="ALWAYS" />
+                                        <Button mnemonicParsing="false" onAction="#buscarContenido" text="Buscar" />
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </padding>
+                                </HBox>
+                            </top>
+                            <center>
+                                <TableView fx:id="tblContenidos" BorderPane.alignment="CENTER">
+                                    <columns>
+                                        <TableColumn fx:id="colTituloContenido" prefWidth="250.0" text="Título" />
+                                        <TableColumn fx:id="colAutorContenido" prefWidth="200.0" text="Autor" />
+                                        <TableColumn fx:id="colTipoContenido" prefWidth="100.0" text="Tipo" />
+                                        <TableColumn fx:id="colCalificacionContenido" prefWidth="100.0" text="Calificación" />
+                                    </columns>
+                                </TableView>
+                            </center>
+                        </BorderPane>
+                    </content>
+                </Tab>
+                <Tab text="Grupos de Estudio">
+                    <content>
+                        <BorderPane>
+                            <center>
+                                <TableView fx:id="tblGrupos" BorderPane.alignment="CENTER">
+                                    <columns>
+                                        <TableColumn fx:id="colNombreGrupo" prefWidth="250.0" text="Nombre" />
+                                        <TableColumn fx:id="colDescripcionGrupo" prefWidth="300.0" text="Descripción" />
+                                        <TableColumn fx:id="colMiembrosGrupo" prefWidth="100.0" text="Miembros" />
+                                        <TableColumn fx:id="colActivoGrupo" prefWidth="100.0" text="Activo" />
+                                    </columns>
+                                </TableView>
+                            </center>
+                            <bottom>
+                                <HBox alignment="CENTER" spacing="10.0" BorderPane.alignment="CENTER">
+                                    <children>
+                                        <Button mnemonicParsing="false" onAction="#activarDesactivarGrupo" text="Activar/Desactivar Grupo" />
+                                        <Button mnemonicParsing="false" onAction="#verMiembrosGrupo" text="Ver Miembros" />
+                                        <Button mnemonicParsing="false" onAction="#eliminarMiembroGrupo" text="Eliminar Miembro" />
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </padding>
+                                </HBox>
+                            </bottom>
+                        </BorderPane>
+                    </content>
+                </Tab>
+                <Tab text="Solicitudes de Ayuda">
+                    <content>
+                        <BorderPane>
+                            <center>
+                                <TableView fx:id="tblSolicitudes" BorderPane.alignment="CENTER">
+                                    <columns>
+                                        <TableColumn fx:id="colTituloSolicitud" prefWidth="250.0" text="Título" />
+                                        <TableColumn fx:id="colEstudianteSolicitud" prefWidth="200.0" text="Estudiante" />
+                                        <TableColumn fx:id="colPrioridadSolicitud" prefWidth="100.0" text="Prioridad" />
+                                        <TableColumn fx:id="colResueltaSolicitud" prefWidth="100.0" text="Resuelta" />
+                                    </columns>
+                                </TableView>
+                            </center>
+                            <bottom>
+                                <HBox alignment="CENTER" spacing="10.0" BorderPane.alignment="CENTER">
+                                    <children>
+                                        <Button mnemonicParsing="false" onAction="#marcarSolicitudComoResuelta" text="Marcar como Resuelta" />
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </padding>
+                                </HBox>
+                            </bottom>
+                        </BorderPane>
+                    </content>
+                </Tab>
+                <Tab text="Estadísticas">
+                    <content>
+                        <BorderPane>
+                            <center>
+                                <VBox alignment="CENTER" spacing="30.0" BorderPane.alignment="CENTER">
+                                    <children>
+                                        <Label text="Estadísticas de la Red Social" textAlignment="CENTER">
+                                            <font>
+                                                <Font name="System Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <GridPane hgap="20.0" vgap="15.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <Label text="Total de Usuarios:" />
+                                                <Label text="Estudiantes:" GridPane.rowIndex="1" />
+                                                <Label text="Moderadores:" GridPane.rowIndex="2" />
+                                                <Label text="Total de Contenidos:" GridPane.rowIndex="3" />
+                                                <Label text="Total de Grupos de Estudio:" GridPane.rowIndex="4" />
+                                                <Label text="Total de Solicitudes de Ayuda:" GridPane.rowIndex="5" />
+                                                <Label text="Solicitudes Pendientes:" GridPane.rowIndex="6" />
+                                                <Label text="Solicitudes Resueltas:" GridPane.rowIndex="7" />
+                                                <Label fx:id="lblTotalUsuarios" text="0" GridPane.columnIndex="1" />
+                                                <Label fx:id="lblTotalEstudiantes" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <Label fx:id="lblTotalModeradores" text="0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Label fx:id="lblTotalContenidos" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                <Label fx:id="lblTotalGrupos" text="0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                <Label fx:id="lblTotalSolicitudes" text="0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                                <Label fx:id="lblSolicitudesPendientes" text="0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                                <Label fx:id="lblSolicitudesResueltas" text="0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                            </children>
+                                        </GridPane>
+
+                                        <!-- BOTÓN PARA VER GRAFO -->
+                                        <Button text="Ver Grafo de Afinidad" onAction="#mostrarGrafoAfinidad" />
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                    </padding>
+                                </VBox>
+                            </center>
+                        </BorderPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </center>
+</BorderPane>

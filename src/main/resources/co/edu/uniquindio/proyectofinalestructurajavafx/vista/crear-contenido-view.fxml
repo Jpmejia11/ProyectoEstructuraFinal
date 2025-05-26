@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectofinalestructurajavafx.controlador.CrearContenidoController">
+   <center>
+      <VBox alignment="TOP_CENTER" spacing="15.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Crear Nuevo Contenido" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+               <children>
+                  <Label prefWidth="80.0" text="Título:" />
+                  <TextField fx:id="txtTitulo" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+               <children>
+                  <Label prefWidth="80.0" text="Tipo:" />
+                  <ComboBox fx:id="cmbTipo" prefWidth="200.0" />
+                  <Button mnemonicParsing="false" text="Subir archivo" onAction="#subirArchivo" />
+               </children>
+            </HBox>
+            <Label text="Descripción:" />
+            <TextArea fx:id="txtDescripcion" prefHeight="200.0" wrapText="true" />
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+               <children>
+                  <Label prefWidth="80.0" text="Etiquetas:" />
+                  <TextField fx:id="txtEtiquetas" promptText="Separadas por comas" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <Label fx:id="lblError" textFill="RED" />
+            <HBox alignment="CENTER" spacing="20.0">
+               <children>
+                  <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
+                  <Button fx:id="btnGuardar" defaultButton="true" mnemonicParsing="false" onAction="#guardarContenido" text="Guardar" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </VBox>
+   </center>
+</BorderPane>

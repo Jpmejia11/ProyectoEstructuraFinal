@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectofinalestructurajavafx.controlador.EstudianteController">
+   <top>
+      <HBox alignment="CENTER_LEFT" spacing="20.0" style="-fx-background-color: #f0f0f0;" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Red Social Educativa">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+               <children>
+                  <VBox alignment="CENTER_RIGHT">
+                     <children>
+                        <Label fx:id="lblNombreUsuario" text="Nombre del Estudiante">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <HBox alignment="CENTER_RIGHT" spacing="5.0">
+                           <children>
+                              <Label fx:id="lblCarrera" text="Carrera" />
+                              <Label text="|" />
+                              <Label fx:id="lblSemestre" text="Semestre" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Button mnemonicParsing="false" onAction="#cerrarSesion" text="Cerrar Sesión">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+         </padding>
+      </HBox>
+   </top>
+   <center>
+      <TabPane fx:id="tabPaneEstudiante" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="Mi Perfil">
+               <content>
+                  <BorderPane>
+                     <center>
+                        <VBox alignment="TOP_CENTER" spacing="20.0">
+                           <children>
+                              <Label text="Mis Intereses">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <ListView fx:id="lstIntereses" prefHeight="300.0" prefWidth="200.0" />
+                              <HBox alignment="CENTER" spacing="10.0">
+                                 <children>
+                                    <TextField fx:id="txtNuevoInteres" promptText="Nuevo interés" HBox.hgrow="ALWAYS" />
+                                    <Button mnemonicParsing="false" onAction="#agregarInteres" text="Agregar" />
+                                    <Button mnemonicParsing="false" onAction="#eliminarInteres" text="Eliminar Seleccionado" />
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </padding>
+                        </VBox>
+                     </center>
+                  </BorderPane>
+               </content>
+          </Tab>
+          <Tab text="Contenidos">
+               <content>
+                  <BorderPane>
+                     <top>
+                        <HBox alignment="CENTER" spacing="10.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <TextField fx:id="txtBuscarContenido" promptText="Buscar contenido..." HBox.hgrow="ALWAYS" />
+                              <Button mnemonicParsing="false" onAction="#buscarContenido" text="Buscar" />
+                              <Button mnemonicParsing="false" onAction="#crearContenido" text="Crear Contenido" />
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </HBox>
+                     </top>
+                     <center>
+                        <TableView fx:id="tblContenidos" onMouseClicked="#verDetallesContenido" BorderPane.alignment="CENTER">
+                          <columns>
+                            <TableColumn fx:id="colTitulo" prefWidth="200.0" text="Título" />
+                            <TableColumn fx:id="colDescripcion" prefWidth="400.0" text="Descripción" />
+                              <TableColumn fx:id="colTipo" prefWidth="100.0" text="Tipo" />
+                          </columns>
+                        </TableView>
+                     </center>
+                  </BorderPane>
+               </content>
+          </Tab>
+            <Tab text="Grupos de Estudio">
+               <content>
+                  <BorderPane>
+                     <top>
+                        <HBox alignment="CENTER" spacing="10.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label text="Mis Grupos de Estudio" HBox.hgrow="ALWAYS">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Button mnemonicParsing="false" onAction="#crearGrupoEstudio" text="Crear Grupo" />
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </HBox>
+                     </top>
+                     <center>
+                        <TableView fx:id="tblGrupos" BorderPane.alignment="CENTER">
+                          <columns>
+                            <TableColumn fx:id="colNombreGrupo" prefWidth="200.0" text="Nombre" />
+                            <TableColumn fx:id="colDescripcionGrupo" prefWidth="400.0" text="Descripción" />
+                              <TableColumn fx:id="colMiembrosGrupo" prefWidth="100.0" text="Miembros" />
+                          </columns>
+                        </TableView>
+                     </center>
+                  </BorderPane>
+               </content>
+            </Tab>
+            <Tab text="Solicitudes de Ayuda">
+               <content>
+                  <BorderPane>
+                     <top>
+                        <HBox alignment="CENTER" spacing="10.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label text="Solicitudes de Ayuda" HBox.hgrow="ALWAYS">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Button mnemonicParsing="false" onAction="#crearSolicitudAyuda" text="Crear Solicitud" />
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </HBox>
+                     </top>
+                     <center>
+                        <TableView fx:id="tblSolicitudes" BorderPane.alignment="CENTER">
+                          <columns>
+                            <TableColumn fx:id="colTituloSolicitud" prefWidth="200.0" text="Título" />
+                            <TableColumn fx:id="colDescripcionSolicitud" prefWidth="400.0" text="Descripción" />
+                              <TableColumn fx:id="colPrioridadSolicitud" prefWidth="100.0" text="Prioridad" />
+                          </columns>
+                        </TableView>
+                     </center>
+                  </BorderPane>
+               </content>
+            </Tab>
+            <Tab text="Recomendaciones">
+               <content>
+                  <BorderPane>
+                     <center>
+                        <VBox spacing="20.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <VBox spacing="10.0">
+                                 <children>
+                                    <Label text="Estudiantes con intereses similares">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TableView fx:id="tblEstudiantesSimilares">
+                                      <columns>
+                                        <TableColumn fx:id="colNombreEstudiante" prefWidth="300.0" text="Nombre" />
+                                        <TableColumn fx:id="colCarreraEstudiante" prefWidth="300.0" text="Carrera" />
+                                          <TableColumn fx:id="colSemestreEstudiante" prefWidth="100.0" text="Semestre" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </VBox>
+                              <VBox spacing="10.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                       <children>
+                                          <Label text="Grupos de estudio recomendados">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Button mnemonicParsing="false" onAction="#unirseAGrupo" text="Unirse al Grupo Seleccionado" />
+                                       </children>
+                                    </HBox>
+                                    <TableView fx:id="tblGruposRecomendados">
+                                      <columns>
+                                        <TableColumn fx:id="colNombreGrupoRecomendado" prefWidth="300.0" text="Nombre" />
+                                        <TableColumn fx:id="colDescripcionGrupoRecomendado" prefWidth="400.0" text="Descripción" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </padding>
+                        </VBox>
+                     </center>
+                  </BorderPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+</BorderPane>
